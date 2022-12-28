@@ -1,1 +1,1 @@
-<?php echo 'MyJavascriptCookings'; ?>
+<?php echo 'MyJavascriptCookings/demos'; ?>
