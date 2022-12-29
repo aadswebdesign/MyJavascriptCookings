@@ -1,9 +1,6 @@
-async function description(){
-	return await console.log('functions.js, here I will keep track of my helper functions');
-}
 
 // elem - class - id - attributes - content - template_literal - parent replace
-async function createElemHelper(_elem, _class, _id, _atts, _content, _tpl,_parent, _replace){ //
+async function createElemHelper(_elem, _class, _id, _atts, _content, _tpl,_parent, _replace){ 
 	const _sanitize_html = async function (_elem,_str) {
 		let _html;
 		if(_elem){
@@ -144,4 +141,4 @@ async function myLearnings(){
 	//return console.log('Summary: ',Summary);
 }
 
-export{description,createElemHelper,elQuery,getIdHelper,sanitizeHTMLHelper,templateHelper,myLearnings};
+export{createElemHelper,elQuery,getIdHelper,sanitizeHTMLHelper,templateHelper,myLearnings};
