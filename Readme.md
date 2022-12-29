@@ -27,8 +27,13 @@ This because I'm abroad at present and have only a small laptop to work on.
 			- const foos2 = await elQuery('.foo', true, bas); bas.querySelectorAll
 	- sanitizeHTMLHelper(_elem,_str, add_str = false, _query = false, _timeout = false)
 		- Async function that aims retrieving content a little safer.
+		- // _elem 'target', 
+		- // _str 'string to be passed to the target element',
+		- // add_str 'if set to true, a string will be added to the exsisting content, otherwise content will  be replaced',
+		- // _query 'if set to true, target element will quered first',
+		- // _timeout 'if set to true, a timeout of 100 will be set',
 		- examples
-			- FT.sanitizeHTMLHelper(page, entry.content);
+			- FT.sanitizeHTMLHelper('.foo', foo_content);
 
 
 
