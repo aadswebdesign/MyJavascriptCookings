@@ -44,7 +44,7 @@ async function pagesHandler(){
 			// update the URL
         	history.pushState(null, "", entry.url);
 			await FT.sanitizeHTMLHelper(page, entry.content);
-			await FT.myLearnings();
+			await FT.additionals();
 		}
 		
 	};
@@ -52,12 +52,11 @@ async function pagesHandler(){
 		wrap.addEventListener('click', function(event){
 			if (!event.target.id)return;
 			update(event.target.id);
-			//FT.myLearnings();
 		});	
 	}
 
 	const pageId = hashes.get(window.location.hash);
 	if (pageId) await update(pageId);
-	await FT.myLearnings();
+	await FT.additionals();
 }
 export{pagesHandler};

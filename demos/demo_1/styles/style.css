@@ -110,7 +110,6 @@ div.block.page{
 	height: 100%;
 	padding-bottom: 0.5em;
 	width: calc(100% - 2.0em);
-	border: 1px solid red;
 }
 div.block.page p::first-letter{
 	font-size: 1.4em;
@@ -225,12 +224,3 @@ h5.learning.step::before{
 .details-trial summary{
 	width: fit-content;
 }
-
-
-
-
-
-
-
-
-

@@ -57,7 +57,11 @@ async function elQuery(_element,_all = false,_parent){
 	}
     return await _el;
 }
-
+// _elem 'target', 
+// _str 'string to be passed to the target element',
+// add_str 'if set to true, a string will be added to the exsisting content, otherwise content will  be replaced',
+// _query 'if set to true, target element will quered first',
+// _timeout 'if set to true, a timeout of 100 will be set',
 const sanitizeHTMLHelper = async function (_elem,_str, add_str = false, _query = false, _timeout = false) { //, _query
     let _html;
     if(_elem){
@@ -123,22 +127,8 @@ async function templateHelper(strings, ...keys) {
     });
 }
 
-async function myLearnings(){
-	//todo, translate this to oop functions 
-	const learning_block = await elQuery('.learning-block');// - 50 + 'px'
-	if(learning_block){
-		const learning_block_width = learning_block.offsetWidth;
-		const learning_block_height = learning_block.offsetHeight;
-		const learning_block_content =  await elQuery('.learning.content', false, learning_block);
-		learning_block_content.style.width = learning_block_width - 100 + 'px';
-		const Summary = await elQuery('summary');
-		const details_content = await elQuery('.details-content', false, learning_block);
-		details_content.style.left = Summary.offsetWidth + 10 + 'px';
-		details_content.style.height= learning_block_height - 60 + 'px';
-	}
-	
-	
-	//return console.log('Summary: ',Summary);
+async function additionals(){
+	//additional stuff to be passed to the pagesHandler
 }
 
-export{createElemHelper,elQuery,getIdHelper,sanitizeHTMLHelper,templateHelper,myLearnings};
+export{createElemHelper,elQuery,getIdHelper,sanitizeHTMLHelper,templateHelper,additionals};

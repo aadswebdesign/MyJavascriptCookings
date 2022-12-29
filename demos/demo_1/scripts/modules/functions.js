@@ -126,7 +126,7 @@ async function templateHelper(strings, ...keys) {
     });
 }
 
-async function myLearnings(){
+async function additionals(){
 	//todo, translate this to oop functions 
 	const learning_block = await elQuery('.learning-block');// - 50 + 'px'
 	if(learning_block){
@@ -144,4 +144,4 @@ async function myLearnings(){
 	//return console.log('Summary: ',Summary);
 }
 
-export{description,createElemHelper,elQuery,getIdHelper,sanitizeHTMLHelper,templateHelper,myLearnings};
+export{description,createElemHelper,elQuery,getIdHelper,sanitizeHTMLHelper,templateHelper,additionals};

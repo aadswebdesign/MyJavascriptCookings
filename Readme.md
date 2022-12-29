@@ -5,14 +5,33 @@ A place where I want to do some frontend prepairations for my other repo 'Tailor
 This because I'm abroad at present and have only a small laptop to work on.
 
 ### Snippets
-** Files
-- functions.js (import * as FT from './../functions.js';)
+**Files**
+- js_snippets/functions.js (import * as FT from './../functions.js';)
+		- note: As it are async functions, they have to be called with '***await***' and not with ***new***!.		
 	- createElemHelper
-		- An async function with many options to create and manipulate dom elements
-		- note: As it is an async function, it has to be called with 'await'. Also, data attributes has to be created as 'data_example' (this will be translated under the hood as 'data-example').
+		- Async function with many options to create and manipulate dom elements
+		- note: Data attributes has to be created as 'data_example' (this will be translated under the hood as 'data-example').
 		- example
 			- // elem , class , id , attributes , content , template_literal , parent  , replace
 			- await FT.createElemHelper('main', 'relative', null,{role: 'presentation'}, null,false,'.wrap.container');
+	- getIdHelper(id)
+		- Async function that retrieves the 'id' from a dom element.
+		- example
+			- await FT.getIdHelper('foo');
+	- elQuery(_element,_all = false,_parent)
+		- Async function that retrieves dom element(s).
+		- examples
+			- const bas = await elQuery('.bas'); document.querySelector
+			- const foo = await elQuery('.foo', false, bas); bas.querySelector
+			- const foos = await elQuery('.foo', true); document.querySelectorAll
+			- const foos2 = await elQuery('.foo', true, bas); bas.querySelectorAll
+	- sanitizeHTMLHelper(_elem,_str, add_str = false, _query = false, _timeout = false)
+		- Async function that aims retrieving content a little safer.
+		- examples
+			- FT.sanitizeHTMLHelper(page, entry.content);
+
+
+
 
 
 ### Demo's
