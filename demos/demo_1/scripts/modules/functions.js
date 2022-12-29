@@ -27,7 +27,7 @@ async function createElemHelper(_elem, _class, _id, _atts, _content, _tpl,_paren
 		}
 	}
 	if(_content){
-		if(_tpl == true) _sanitize_html(_el, _content);
+		if(true === _tpl) _sanitize_html(_el, _content);
 		else{
 			const _node = document.createTextNode(_content);
 			_el.appendChild(_node);
@@ -49,9 +49,9 @@ async function getIdHelper(id){
         return await document.getElementById(id);
 }
 
-async function elQuery(_element,_all,_parent){
+async function elQuery(_element,_all = false,_parent){
     let _el;
-	if(_all == true){
+	if(true === _all){
 		if(_parent) _el = _parent.querySelectorAll(_element);
     	else _el = document.querySelectorAll(_element);
 	}else{
@@ -65,10 +65,10 @@ const sanitizeHTMLHelper = async function (_elem,_str, add_str = false, _query =
     let _html;
     if(_elem){
 		_html = _elem;
-		if(_timeout == true){
+		if(true === _timeout){
 			setTimeout(()=>{
-				if(_query == true){
-					if(add_str == true) {
+				if(true === _query){
+					if(true === add_str) {
 						_html = document.querySelector(_elem);
 						_html.innerHTML += _str;
 					} 
@@ -78,7 +78,7 @@ const sanitizeHTMLHelper = async function (_elem,_str, add_str = false, _query =
 					}; 
 					console.log({'html 1a':_html});
 				}else{
-					if(add_str == true) {
+					if(add_str === true) {
 						_html = _elem;
 						_html.innerHTML += _str;
 					} 
@@ -90,8 +90,8 @@ const sanitizeHTMLHelper = async function (_elem,_str, add_str = false, _query =
 				}
 			},100);
 		}else{
-			if(_query == true){
-				if(add_str == true) {
+			if(true === _query){
+				if(true === add_str) {
 						_html = document.querySelector(_elem);
 						_html.innerHTML += _str;
 				} 
@@ -101,7 +101,7 @@ const sanitizeHTMLHelper = async function (_elem,_str, add_str = false, _query =
 				}; 
 				console.log({'html 2a':_html});
 			}else{
-				if(add_str == true) {
+				if(true === add_str) {
 					_html = _elem;
 					_html.innerHTML += _str;
 				} 
@@ -127,17 +127,21 @@ async function templateHelper(strings, ...keys) {
 }
 
 async function myLearnings(){
-	const learning_block = document.querySelector('.learning-block');// - 50 + 'px'
-	const learning_block_width = learning_block.offsetWidth;
-	const learning_block_height = learning_block.offsetHeight;
-	const learning_block_content = learning_block.querySelector('.learning.content');
-	learning_block_content.style.width = learning_block_width - 100 + 'px';
-	const Summary = document.querySelector('summary').offsetWidth;
-	const details_content = document.querySelector('.details-content');
-	details_content.style.left = Summary + 10 + 'px';
-	details_content.style.height= learning_block_height - 60 + 'px';
+	//todo, translate this to oop functions 
+	const learning_block = await elQuery('.learning-block');// - 50 + 'px'
+	if(learning_block){
+		const learning_block_width = learning_block.offsetWidth;
+		const learning_block_height = learning_block.offsetHeight;
+		const learning_block_content =  await elQuery('.learning.content', false, learning_block);
+		learning_block_content.style.width = learning_block_width - 100 + 'px';
+		const Summary = await elQuery('summary');
+		const details_content = await elQuery('.details-content', false, learning_block);
+		details_content.style.left = Summary.offsetWidth + 10 + 'px';
+		details_content.style.height= learning_block_height - 60 + 'px';
+	}
 	
-	return console.log('learning_block_height: ',learning_block_height);
+	
+	//return console.log('Summary: ',Summary);
 }
 
 export{description,createElemHelper,elQuery,getIdHelper,sanitizeHTMLHelper,templateHelper,myLearnings};

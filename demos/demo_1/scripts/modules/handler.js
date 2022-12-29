@@ -35,7 +35,7 @@ async function pagesHandler(){
 			console.timeLog(currentTab);
 			console.timeEnd(currentTab);
 
-			if (currentTab.id != pageId) currentTab.classList.remove("active");
+			if (currentTab.id !== pageId) currentTab.classList.remove("active");
 			const selectedTab = await FT.getIdHelper(pageId);
 			selectedTab.classList.add("active");
 		}
@@ -44,12 +44,15 @@ async function pagesHandler(){
 			// update the URL
         	history.pushState(null, "", entry.url);
 			await FT.sanitizeHTMLHelper(page, entry.content);
+			await FT.myLearnings();
 		}
+		
 	};
 	if(wrap){
 		wrap.addEventListener('click', function(event){
 			if (!event.target.id)return;
 			update(event.target.id);
+			//FT.myLearnings();
 		});	
 	}
 
