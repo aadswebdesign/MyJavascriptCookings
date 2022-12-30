@@ -34,8 +34,8 @@ This because I'm abroad at present and have only a small laptop to work on.
 		- // _timeout 'if set to true, a timeout of 100 will be set',
 		- examples
 			- FT.sanitizeHTMLHelper('.foo', foo_content);
-	- templateHelper(strings, ...keys)
-		- todo
+	- templateHelper(elem = null,str)
+		- if not null elem, it returns elem.innerHTML string else elem string
 	- additionals
 		- Async function for passing additional stuff to the pagesHandler in handler.js
 		- this stuff will be re-initialized/updated when swapping between panes.

@@ -115,16 +115,13 @@ const sanitizeHTMLHelper = async function (_elem,_str, add_str = false, _query =
     }
     return await _html;
 };
-async function templateHelper(strings, ...keys) {
-    return (function(...values) {
-        const _dict = values[values.length - 1] || {};
-        const _results = [strings[0]];
-        keys.forEach(function(key, i) {
-            const _value = Number.isInteger(key) ? values[key] : _dict[key];
-            _results.push(_value, strings[i + 1]);
-        });
-        return _results.join('');
-    });
+async function templateHelper(elem = null,str) {
+    let string = null;
+	if(null !== elem){
+		string = elem.innerHTML = `${str}`;
+	}
+	string = `${str}`;
+	return await string;
 }
 
 async function additionals(){

@@ -114,17 +114,15 @@ const sanitizeHTMLHelper = async function (_elem,_str, add_str = false, _query =
     }
     return await _html;
 };
-async function templateHelper(strings, ...keys) {
-    return (function(...values) {
-        const _dict = values[values.length - 1] || {};
-        const _results = [strings[0]];
-        keys.forEach(function(key, i) {
-            const _value = Number.isInteger(key) ? values[key] : _dict[key];
-            _results.push(_value, strings[i + 1]);
-        });
-        return _results.join('');
-    });
+async function templateHelper(elem = null,str) {
+    let string = null;
+	if(null !== elem){
+		string = elem.innerHTML = `${str}`;
+	}
+	string = `${str}`;
+	return await string;
 }
+
 
 async function additionals(){
 	//todo, translate this to oop functions 
@@ -139,9 +137,13 @@ async function additionals(){
 		details_content.style.left = Summary.offsetWidth + 10 + 'px';
 		details_content.style.height= learning_block_height - 60 + 'px';
 	}
-	
-	
-	//return console.log('Summary: ',Summary);
+	const blog_block =  await elQuery('.blog-block');//blog-block
+	if(blog_block){
+		const trial = await elQuery('.trial', false,blog_block );
+		await templateHelper(trial,'templateHelper1');
+		trial.innerHTML += await templateHelper(null,'templateHelper2');
+		await console.log('trial: ',trial);
+	}
 }
 
 export{description,createElemHelper,elQuery,getIdHelper,sanitizeHTMLHelper,templateHelper,additionals};

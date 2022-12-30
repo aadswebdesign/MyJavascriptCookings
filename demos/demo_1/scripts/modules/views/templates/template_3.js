@@ -2,7 +2,7 @@ import * as FT from './../../functions.js';
 /* @description: used as about template*/
 async function templateThree(){
 	return await `
-	<div class='media-wrapper relative'><img src='media/me.jpg' width='100%' height='100%' class='relative'/></div>
+	<div class='media-wrapper relative'>about template</div>
 	`;
 }
 export{templateThree};
