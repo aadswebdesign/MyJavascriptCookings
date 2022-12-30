@@ -7,7 +7,7 @@ This because I'm abroad at present and have only a small laptop to work on.
 ### Snippets
 **Files**
 - js_snippets/functions.js (import * as FT from './../functions.js';)
-		- note: As it are async functions, they have to be called with '***await***' and not with ***new***!.		
+		- note: As it are async functions, they have to be called with '***await***' and not with ***new***!		
 	- createElemHelper
 		- Async function with many options to create and manipulate dom elements
 		- note: Data attributes has to be created as 'data_example' (this will be translated under the hood as 'data-example').
@@ -21,10 +21,10 @@ This because I'm abroad at present and have only a small laptop to work on.
 	- elQuery(_element,_all = false,_parent)
 		- Async function that retrieves dom element(s).
 		- examples
-			- const bas = await elQuery('.bas'); document.querySelector
-			- const foo = await elQuery('.foo', false, bas); bas.querySelector
-			- const foos = await elQuery('.foo', true); document.querySelectorAll
-			- const foos2 = await elQuery('.foo', true, bas); bas.querySelectorAll
+			- const bas = await FT.elQuery('.bas'); document.querySelector
+			- const foo = await FT.elQuery('.foo', false, bas); bas.querySelector
+			- const foos = await FT.elQuery('.foo', true); document.querySelectorAll
+			- const foos2 = await FT.elQuery('.foo', true, bas); bas.querySelectorAll
 	- sanitizeHTMLHelper(_elem,_str, add_str = false, _query = false, _timeout = false)
 		- Async function that aims retrieving content a little safer.
 		- // _elem 'target', 
@@ -34,9 +34,9 @@ This because I'm abroad at present and have only a small laptop to work on.
 		- // _timeout 'if set to true, a timeout of 100 will be set',
 		- examples
 			- FT.sanitizeHTMLHelper('.foo', foo_content);
+	- templateHelper(strings, ...keys)
+		- todo
+	- additionals
+		- Async function for passing additional stuff to the pagesHandler in handler.js
+		- this stuff will be re-initialized/updated when swapping between panes.
 
-
-
-
-
-### Demo's

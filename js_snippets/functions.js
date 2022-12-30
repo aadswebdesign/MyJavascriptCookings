@@ -128,7 +128,7 @@ async function templateHelper(strings, ...keys) {
 }
 
 async function additionals(){
-	//additional stuff to be passed to the pagesHandler
+	//additional stuff to be passed to the pagesHandler function in 'handler.js'.
 }
 
 export{createElemHelper,elQuery,getIdHelper,sanitizeHTMLHelper,templateHelper,additionals};

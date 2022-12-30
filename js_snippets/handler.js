@@ -5,7 +5,7 @@ import{templateTwo} from './views/templates/template_2.js';
 import{templateThree} from './views/templates/template_3.js';
 import{templateFour} from './views/templates/template_4.js';
 import{landingTemplate} from './views/templates/landing_template.js';
-
+//this as it is within demo_1
 async function pagesHandler(){
 	const wrap = await FT.elQuery('.wrap.container');
 	const page = await FT.elQuery('.page');
