@@ -1,16 +1,22 @@
 /** site_specifics.js */
 import * as FT from './functions.js';
 import * as EL from './svgManager/svgElements.js';
-import * as SI_A from './svgManager/svgIcons_A.js';
-import * as SI_B from './svgManager/svgIcons_B.js';
-import * as SI_C from './svgManager/svgIcons_C.js';
-import * as SI_D from './svgManager/svgIcons_D.js';
-import * as SI_E from './svgManager/svgIcons_E.js';
+import * as SI_A from './svgManager/icons/svgIcons_A.js';
+import * as SI_B from './svgManager/icons/svgIcons_B.js';
+import * as SI_C from './svgManager/icons/svgIcons_C.js';
+import * as SI_D from './svgManager/icons/svgIcons_D.js';
+import * as SI_E from './svgManager/icons/svgIcons_E.js';
+import * as SI_F from './svgManager/icons/svgIcons_F.js';
+import * as SI_G from './svgManager/icons/svgIcons_G.js';
+import * as SI_H from './svgManager/icons/svgIcons_H.js';
+
 export async function admin_panel_controls(){
 	const admin_panel = await FT.elQuery('.admin-panel');
 	const admin_panel_height = admin_panel.offsetHeight;
 	const admin_controlls = await FT.elQuery('.controlls', false, admin_panel);
 	admin_controlls.style.height = `${admin_panel_height - 2}px`;
+	await SI_H.H1('.test-block');
+
 }
 export async function admin_panel(){
 	const details_top = await FT.elQuery('.menu-balk-top details');
