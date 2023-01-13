@@ -9,13 +9,14 @@ import * as SI_E from './svgManager/icons/svgIcons_E.js';
 import * as SI_F from './svgManager/icons/svgIcons_F.js';
 import * as SI_G from './svgManager/icons/svgIcons_G.js';
 import * as SI_H from './svgManager/icons/svgIcons_H.js';
+import * as SI_I from './svgManager/icons/svgIcons_I.js';
 
 export async function admin_panel_controls(){
 	const admin_panel = await FT.elQuery('.admin-panel');
 	const admin_panel_height = admin_panel.offsetHeight;
 	const admin_controlls = await FT.elQuery('.controlls', false, admin_panel);
 	admin_controlls.style.height = `${admin_panel_height - 2}px`;
-	await SI_H.H1('.test-block');
+	await SI_I.Id('.test-block');
 
 }
 export async function admin_panel(){
